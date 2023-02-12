@@ -6,64 +6,72 @@
 /*   By: jsabound <jsabound@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 16:13:16 by jsabound          #+#    #+#             */
-/*   Updated: 2023/01/24 14:50:00 by jsabound         ###   ########.fr       */
+/*   Updated: 2023/02/06 13:04:34 by jsabound         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-
-long int *init_string(char **av, t_data *data)
+t_listnb	*init_list(char **av)
 {
-	char **temp;
-	long int *tab;
-	int	i;
+	t_listnb	*list;
+	char		**temp;
+	int			i;
+	int			j;
+	int			nb;
 
-	i = 0;
-	tab = malloc(sizeof(tab));
-	temp = ft_split(av[1], ' ');
-	i = 0;
-	while(temp[i])
-	{
-		tab[i] = ft_atoi(temp[i]);
-		i++;
-	}
-	data->tab_len = i;
-	return (tab);
-}
-
-
-long int *init_arg(char **av, int ac, t_data *data)
-{
-	long int *tab;
-	int i;
-	int j;
-
-	tab = malloc(sizeof(tab) * ac);
-	if (!tab)
-		return (NULL);
 	i = 1;
-	j = 0;
-	while(av[i])
+	list = NULL;
+	while (av[i])
 	{
-		tab[j] = ft_atoi(av[i]);
+		temp = ft_split(av[i], ' ');
+		j = 0;
+		if (!temp[0])
+		{
+			ft_putstr_fd("Error\n", 2);
+			exit(1);
+		}
+		while (temp[j])
+		{
+			nb = ft_atoi(temp[j]);
+			ft_lstadd_back(&list, ft_lstnew(nb));
+			j++;
+		}
 		i++;
-		j++;
 	}
-	data->tab_len = i;
-	return (tab);
+	return (list);
 }
 
-t_listnb *convert(long int *tab, t_data *data)
+int	check_tri(t_listnb *lst)
+{
+	t_listnb	*temp;
+
+	temp = lst;
+	while (temp->next)
+	{
+		if (temp->content > temp->next->content)
+			return (0);
+		temp = temp->next;
+	}
+	return (1);
+}
+
+int	check_doublon(t_listnb *lst)
 {
 	t_listnb *temp;
-	int		i;
-	
-	temp = ft_lstnew(tab[0]);
-	if (!temp)
-		return (NULL);
-	i = 1; 
-	while(i < data->tab_len)
-		ft_lstadd_back(&temp, ft_lstnew(tab[i++]));
-	return (temp);
+
+	temp = lst->next;
+	while (lst)
+	{
+		while (temp)
+		{
+			if (temp->content == lst->content)
+				return (1);
+			temp = temp->next;
+		}
+		lst = lst->next;
+		if (lst)
+			temp = lst->next;
+	}
+	return (0);
 }
