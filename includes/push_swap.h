@@ -6,7 +6,7 @@
 /*   By: jsabound <jsabound@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 02:05:36 by jsabound          #+#    #+#             */
-/*   Updated: 2023/02/12 16:08:30 by jsabound         ###   ########.fr       */
+/*   Updated: 2023/02/13 17:13:01 by jsabound         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ typedef struct s_data
 	int		nb_max;
 	int		mediane;
 	int		*tab;
+	int		check;
 }			t_data;
 
 t_listnb	*init_list(char **av);

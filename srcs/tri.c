@@ -6,7 +6,7 @@
 /*   By: jsabound <jsabound@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 12:39:02 by jsabound          #+#    #+#             */
-/*   Updated: 2023/02/12 16:59:47 by jsabound         ###   ########.fr       */
+/*   Updated: 2023/02/13 17:53:33 by jsabound         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ int	*sort_int_tab(int *tab, unsigned int size, t_data *data)
 
 void	pre_tri(t_listnb **a, t_listnb **b, t_data *data)
 {
-	while ((*a))
+	printf("mediane = %d\n", data->mediane);
+	while ((*a)->next)
 	{
 		if ((*a)->content == data->mediane)
 		{
