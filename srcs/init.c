@@ -6,7 +6,7 @@
 /*   By: jsabound <jsabound@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 16:13:16 by jsabound          #+#    #+#             */
-/*   Updated: 2023/02/06 13:04:34 by jsabound         ###   ########.fr       */
+/*   Updated: 2023/02/22 21:41:21 by jsabound         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	check_tri(t_listnb *lst)
 
 int	check_doublon(t_listnb *lst)
 {
-	t_listnb *temp;
+	t_listnb	*temp;
 
 	temp = lst->next;
 	while (lst)

@@ -6,7 +6,7 @@
 #    By: jsabound <jsabound@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/29 18:16:16 by jsabound          #+#    #+#              #
-#    Updated: 2023/02/06 13:16:16 by jsabound         ###   ########.fr        #
+#    Updated: 2023/02/16 17:59:24 by jsabound         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ WHITE		=	\033[0;97m
 
 # Sources
 
-SRC_FILES	=	main swap init tri
+SRC_FILES	=	main swap init tri tri2 tri3 swap2
 
 
 SRC 		= 	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
