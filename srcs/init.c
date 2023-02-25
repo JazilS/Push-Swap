@@ -6,38 +6,67 @@
 /*   By: jsabound <jsabound@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 16:13:16 by jsabound          #+#    #+#             */
-/*   Updated: 2023/02/22 21:41:21 by jsabound         ###   ########.fr       */
+/*   Updated: 2023/02/25 12:52:37 by jsabound         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
+void	free_temp(char **temp)
+{
+	int	i;
+
+	i = 0;
+	while (temp[i])
+	{	
+		free(temp[i]);
+		i++;
+	}
+	free(temp);
+}
+
 t_listnb	*init_list(char **av)
 {
-	t_listnb	*list;
 	char		**temp;
 	int			i;
-	int			j;
-	int			nb;
+	t_listnb	*list;
 
 	i = 1;
 	list = NULL;
 	while (av[i])
 	{
 		temp = ft_split(av[i], ' ');
-		j = 0;
 		if (!temp[0])
 		{
 			ft_putstr_fd("Error\n", 2);
 			exit(1);
 		}
-		while (temp[j])
-		{
-			nb = ft_atoi(temp[j]);
-			ft_lstadd_back(&list, ft_lstnew(nb));
-			j++;
-		}
+		list = new_list(list, temp);
 		i++;
+		free_temp(temp);
+	}
+	return (list);
+}
+
+t_listnb	*new_list(t_listnb *list, char **temp)
+{
+	int	nb;
+	int	j;
+
+	if (!temp[0])
+		return (NULL);
+	j = 0;
+	while (temp[j])
+	{
+		nb = ft_atoi(temp[j]);
+		if (nb > __INT_MAX__ || nb < -2147483648)
+		{
+			free_temp(temp);
+			ft_putstr_fd("Error\n", 2);
+			exit(1);
+		}
+		ft_lstadd_back(&list, ft_lstnew(nb));
+		j++;
 	}
 	return (list);
 }

@@ -6,7 +6,7 @@
 /*   By: jsabound <jsabound@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 02:05:36 by jsabound          #+#    #+#             */
-/*   Updated: 2023/02/22 21:03:15 by jsabound         ###   ########.fr       */
+/*   Updated: 2023/02/25 11:41:17 by jsabound         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ int			get_pos(t_listnb *lst, int val);
 int			put_val_top_b(t_listnb **b, int val);
 void		rrotate_b(t_listnb **a);
 void		reset_rot(t_listnb **a, t_data *data);
-void	tri3_suite(t_listnb **a, t_data *data);
+void		tri3_suite(t_listnb **a, t_data *data);
+t_listnb	*new_list(t_listnb *list, char **temp);
+void		free_all(t_listnb *a, t_listnb *b, t_data *data);
 
 #endif

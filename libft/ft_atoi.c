@@ -6,24 +6,32 @@
 /*   By: jsabound <jsabound@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 15:00:28 by jsabound          #+#    #+#             */
-/*   Updated: 2023/02/22 21:39:23 by jsabound         ###   ########.fr       */
+/*   Updated: 2023/02/25 12:46:03 by jsabound         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "../includes/push_swap.h"
 
-int	ft_atoi(const char *nptr)
+char	*too_long(char *str, long int *num)
 {
-	int			sign;
+	while (*str >= '0' && *str <= '9')
+	{
+		*num = (*num * 10) + (*str - '0');
+		str++;
+	}
+	return (str);
+}
+
+long int	ft_atoi(const char *nptr)
+{
 	long int	num;
+	int			sign;
 	char		*str;
 
 	str = (char *)nptr;
 	sign = 1;
 	num = 0;
-	while ((*str == ' ') || (*str == '\t') || (*str == '\n') || (*str == '\v')
-		|| (*str == '\f') || (*str == '\r'))
-		str++;
 	if (*str + 1 == '-' || *str + 1 == '+')
 		return (0);
 	else if (*str == '-')
@@ -33,19 +41,10 @@ int	ft_atoi(const char *nptr)
 	}
 	else if (*str == '+')
 		str++;
-	while (*str >= '0' && *str <= '9')
-	{
-		num = (num * 10) + (*str - '0');
-		if ((num * sign) > __INT_MAX__ || (num * sign) < -2147483648)
-		{
-			ft_putstr_fd("Error\n", 2);
-			exit(1);
-		}
-		str++;
-	}
+	str = too_long(str, &num);
 	if (*str)
 	{
-		ft_putstr_fd("Error\n", 2);
+		ft_putstr_fd("Error65\n", 2);
 		exit(1);
 	}
 	return (num * sign);
