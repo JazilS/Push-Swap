@@ -6,7 +6,7 @@
 /*   By: jsabound <jsabound@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 02:05:36 by jsabound          #+#    #+#             */
-/*   Updated: 2023/02/25 11:41:17 by jsabound         ###   ########.fr       */
+/*   Updated: 2023/02/25 12:59:54 by jsabound         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ typedef struct s_data
 	int		*tab;
 }			t_data;
 
-t_listnb	*init_list(char **av);
 t_listnb	*convert(long int *tab, t_data *data);
 int			check_tri(t_listnb *lst);
 int			check_doublon(t_listnb *lst);
@@ -54,5 +53,6 @@ void		reset_rot(t_listnb **a, t_data *data);
 void		tri3_suite(t_listnb **a, t_data *data);
 t_listnb	*new_list(t_listnb *list, char **temp);
 void		free_all(t_listnb *a, t_listnb *b, t_data *data);
+t_listnb	*init_list(char **av, t_data *data);
 
 #endif

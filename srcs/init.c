@@ -6,7 +6,7 @@
 /*   By: jsabound <jsabound@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 16:13:16 by jsabound          #+#    #+#             */
-/*   Updated: 2023/02/25 12:52:37 by jsabound         ###   ########.fr       */
+/*   Updated: 2023/02/25 12:57:42 by jsabound         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	free_temp(char **temp)
 	free(temp);
 }
 
-t_listnb	*init_list(char **av)
+t_listnb	*init_list(char **av, t_data *data)
 {
 	char		**temp;
 	int			i;
@@ -45,6 +45,8 @@ t_listnb	*init_list(char **av)
 		i++;
 		free_temp(temp);
 	}
+	data->tab = sort_int_tab(init_tab(list), ft_lstsize(list), data);
+	data->tab_len = ft_lstsize(list);
 	return (list);
 }
 
