@@ -6,14 +6,14 @@
 /*   By: jsabound <jsabound@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 15:00:28 by jsabound          #+#    #+#             */
-/*   Updated: 2023/02/26 09:02:36 by jsabound         ###   ########.fr       */
+/*   Updated: 2023/02/26 09:49:53 by jsabound         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "../includes/push_swap.h"
 
-char	*too_long(char *str, long int *num)
+char	*too_long(char *str, long long int *num)
 {
 	while (*str >= '0' && *str <= '9')
 	{
@@ -23,9 +23,9 @@ char	*too_long(char *str, long int *num)
 	return (str);
 }
 
-long int	ft_atoi(const char *nptr)
+long long  int	ft_atoi(const char *nptr)
 {
-	long int	num;
+	long long int	num;
 	int			sign;
 	char		*str;
 

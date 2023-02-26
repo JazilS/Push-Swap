@@ -6,7 +6,7 @@
 /*   By: jsabound <jsabound@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 16:13:16 by jsabound          #+#    #+#             */
-/*   Updated: 2023/02/25 12:57:42 by jsabound         ###   ########.fr       */
+/*   Updated: 2023/02/26 09:48:29 by jsabound         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ t_listnb	*init_list(char **av, t_data *data)
 
 t_listnb	*new_list(t_listnb *list, char **temp)
 {
-	int	nb;
+	long long int	nb;
 	int	j;
 
 	if (!temp[0])
