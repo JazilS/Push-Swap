@@ -6,7 +6,7 @@
 /*   By: jsabound <jsabound@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 17:40:35 by jsabound          #+#    #+#             */
-/*   Updated: 2023/02/22 20:55:01 by jsabound         ###   ########.fr       */
+/*   Updated: 2023/02/27 11:55:25 by jsabound         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	tri5(t_listnb **a, t_data *data, t_listnb **b)
 	tri3(a, &temp);
 	push_a(b, a);
 	push_a(b, a);
+	free(temp.tab);
 }
 
 int	get_next_sup(t_listnb *a, int val, t_data *data)

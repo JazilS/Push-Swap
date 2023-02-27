@@ -6,7 +6,7 @@
 /*   By: jsabound <jsabound@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 15:00:28 by jsabound          #+#    #+#             */
-/*   Updated: 2023/02/27 10:35:31 by jsabound         ###   ########.fr       */
+/*   Updated: 2023/02/27 11:45:07 by jsabound         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*too_long(char *str, long long int *num)
 	return (str);
 }
 
-long long int	ft_atoi(const char *nptr)
+long long int	ft_atoi(const char *nptr, char **temp)
 {
 	long long int	num;
 	int				sign;
@@ -44,6 +44,7 @@ long long int	ft_atoi(const char *nptr)
 	str = too_long(str, &num);
 	if (*str)
 	{
+		free_temp(temp);
 		ft_putstr_fd("Error\n", 2);
 		exit(1);
 	}

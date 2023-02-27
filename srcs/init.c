@@ -6,7 +6,7 @@
 /*   By: jsabound <jsabound@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 16:13:16 by jsabound          #+#    #+#             */
-/*   Updated: 2023/02/27 10:35:58 by jsabound         ###   ########.fr       */
+/*   Updated: 2023/02/27 11:49:42 by jsabound         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ t_listnb	*init_list(char **av, t_data *data)
 		temp = ft_split(av[i], ' ');
 		if (!temp[0])
 		{
+			free_temp(temp);
+			free(data);
 			ft_putstr_fd("Error\n", 2);
 			exit(1);
 		}
@@ -60,7 +62,7 @@ t_listnb	*new_list(t_listnb *list, char **temp)
 	j = 0;
 	while (temp[j])
 	{
-		nb = ft_atoi(temp[j]);
+		nb = ft_atoi(temp[j], temp);
 		if (nb > __INT_MAX__ || nb < -2147483648)
 		{
 			free_temp(temp);

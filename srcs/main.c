@@ -6,7 +6,7 @@
 /*   By: jsabound <jsabound@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:13:07 by jsabound          #+#    #+#             */
-/*   Updated: 2023/02/25 12:57:58 by jsabound         ###   ########.fr       */
+/*   Updated: 2023/02/27 12:00:51 by jsabound         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,18 @@ void	free_all(t_listnb *a, t_listnb *b, t_data *data)
 		free(data);
 }
 
+void	trii(t_listnb **lst, t_listnb **b, t_data **data)
+{
+	if (ft_lstsize(*lst) == 3)
+		tri3(lst, *data);
+	else if (ft_lstsize(*lst) == 2)
+		swap(lst);
+	else if (ft_lstsize(*lst) == 5)
+		tri5(lst, *data, b);
+	else
+		tri(lst, b, *data);
+}
+
 int	main(int ac, char **av)
 {
 	t_data		*data;
@@ -50,20 +62,15 @@ int	main(int ac, char **av)
 	if (ac > 1)
 	{
 		data = malloc(sizeof(t_data));
+		if (!data)
+			return (0);
 		lst = init_list(av, data);
 		b = NULL;
 		if (check_doublon(lst))
 			return (free_all(lst, b, data), ft_putstr_fd("Error\n", 2), 0);
 		if (check_tri(lst))
-			return (free_all(lst, b, data), ft_putstr_fd("Error\n", 2), 0);
-		if (ft_lstsize(lst) == 3)
-			tri3(&lst, data);
-		else if (ft_lstsize(lst) == 2)
-			swap(&lst);
-		else if (ft_lstsize(lst) == 5)
-			tri5(&lst, data, &b);
-		else
-			tri(&lst, &b, data);
+			return (free_all(lst, b, data), 0);
+		trii(&lst, &b, &data);
 		return (free_all(lst, b, data), 0);
 	}
 	return (0);

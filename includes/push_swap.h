@@ -6,7 +6,7 @@
 /*   By: jsabound <jsabound@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 02:05:36 by jsabound          #+#    #+#             */
-/*   Updated: 2023/02/25 12:59:54 by jsabound         ###   ########.fr       */
+/*   Updated: 2023/02/27 12:01:04 by jsabound         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ void		rrotate_b(t_listnb **a);
 void		reset_rot(t_listnb **a, t_data *data);
 void		tri3_suite(t_listnb **a, t_data *data);
 t_listnb	*new_list(t_listnb *list, char **temp);
+void		free_temp(char **temp);
+void		free_all(t_listnb *a, t_listnb *b, t_data *data);
 void		free_all(t_listnb *a, t_listnb *b, t_data *data);
 t_listnb	*init_list(char **av, t_data *data);
 

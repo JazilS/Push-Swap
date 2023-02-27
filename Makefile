@@ -6,7 +6,7 @@
 #    By: jsabound <jsabound@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/29 18:16:16 by jsabound          #+#    #+#              #
-#    Updated: 2023/02/16 17:59:24 by jsabound         ###   ########.fr        #
+#    Updated: 2023/02/27 12:02:41 by jsabound         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,6 @@
 NAME		= push_swap
 INCLUDE		= ./
 LIBFT		= libft
-PRINTF		= ft_printf
 SRC_DIR		= srcs/
 OBJ_DIR		= objects/
 CC			= cc
@@ -58,13 +57,12 @@ bonus:		all
 
 $(NAME):	$(OBJ)
 			@$(SMAKE) -C $(LIBFT)
-			@$(SMAKE) -C ${PRINTF}
-			@$(CC) $(OBJ) -L $(LIBFT) -L $(PRINTF) -lX11 -lXext -lft -lm -o $@
+			@$(CC) $(OBJ) -L $(LIBFT) -lX11 -lXext -lft -lm -o $@
 			@echo "$(GREEN)$(BOLD)push_swap compiled!$(DEF_COLOR)"
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJF)
 			@echo "$(YELLOW)Compiling: $< $(DEF_COLOR)"
-			@$(CC) $(CFLAGS) -I $(INCLUDE) -I $(LIBFT)/includes -I $(PRINTF) -c $< -o $@
+			@$(CC) $(CFLAGS) -I $(INCLUDE) -I $(LIBFT)/includes -c $< -o $@
 
 $(OBJF):
 			@mkdir -p $(OBJ_DIR)
@@ -75,9 +73,7 @@ clean:
 
 fclean:		clean
 			@$(RM) $(NAME)
-			@$(RM) $(PRINTF)/libftprintf.a
 			@$(SMAKE) -C $(LIBFT) fclean
-			@echo "$(CYAN)printf executable files cleaned!$(DEF_COLOR)"
 			@echo "$(CYAN)push_swap executable files cleaned!$(DEF_COLOR)"
 
 re:			fclean all
