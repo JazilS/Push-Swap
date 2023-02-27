@@ -6,12 +6,12 @@
 /*   By: jsabound <jsabound@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 15:00:28 by jsabound          #+#    #+#             */
-/*   Updated: 2023/02/26 09:49:53 by jsabound         ###   ########.fr       */
+/*   Updated: 2023/02/27 10:35:31 by jsabound         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "../includes/push_swap.h"
+#include "libft.h"
 
 char	*too_long(char *str, long long int *num)
 {
@@ -23,11 +23,11 @@ char	*too_long(char *str, long long int *num)
 	return (str);
 }
 
-long long  int	ft_atoi(const char *nptr)
+long long int	ft_atoi(const char *nptr)
 {
 	long long int	num;
-	int			sign;
-	char		*str;
+	int				sign;
+	char			*str;
 
 	str = (char *)nptr;
 	sign = 1;

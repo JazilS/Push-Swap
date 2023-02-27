@@ -6,7 +6,7 @@
 /*   By: jsabound <jsabound@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 16:13:16 by jsabound          #+#    #+#             */
-/*   Updated: 2023/02/26 09:48:29 by jsabound         ###   ########.fr       */
+/*   Updated: 2023/02/27 10:35:58 by jsabound         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	free_temp(char **temp)
 
 	i = 0;
 	while (temp[i])
-	{	
+	{
 		free(temp[i]);
 		i++;
 	}
@@ -53,7 +53,7 @@ t_listnb	*init_list(char **av, t_data *data)
 t_listnb	*new_list(t_listnb *list, char **temp)
 {
 	long long int	nb;
-	int	j;
+	int				j;
 
 	if (!temp[0])
 		return (NULL);
