@@ -6,7 +6,7 @@
 #    By: jsabound <jsabound@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/29 18:16:16 by jsabound          #+#    #+#              #
-#    Updated: 2023/02/27 12:02:41 by jsabound         ###   ########.fr        #
+#    Updated: 2023/03/11 02:23:30 by jsabound         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ LIBFT		= libft
 SRC_DIR		= srcs/
 OBJ_DIR		= objects/
 CC			= cc
-CFLAGS		= -Wall -Wextra -Werror -g3
+CFLAGS		= -Wall -Wextra -Werror
 RM			= rm -f
 SMAKE		= make --no-print-directory
 
